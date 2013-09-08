@@ -1,5 +1,7 @@
 package br.com.libutils.validation;
 
+import org.apache.commons.lang.StringUtils;
+
 import br.com.libutils.exception.CnpjValidationException;
 import br.com.libutils.exception.CpfValidationException;
 import br.com.libutils.exception.EmailValidationException;
@@ -31,17 +33,17 @@ public class Validacao {
 		// TODO: (Refatorar) Utilizar Expressao regular para validar
 		String validateCpf = strCpf.replace(".", "").replace("-", "");
 
-		if (validateCpf == "") {
+		if (validateCpf.equals(StringUtils.EMPTY)) {
 			throw new CpfValidationException(strCpf);
 		}
-
+		
 		// Elimina CPFs invalidos conhecidos
-		if (validateCpf.length() != 11 || validateCpf == "00000000000"
-				|| validateCpf == "11111111111" || validateCpf == "22222222222"
-				|| validateCpf == "33333333333" || validateCpf == "44444444444"
-				|| validateCpf == "55555555555" || validateCpf == "66666666666"
-				|| validateCpf == "77777777777" || validateCpf == "88888888888"
-				|| validateCpf == "99999999999") {
+		if (validateCpf.length() != 11 || validateCpf.equals("00000000000")
+				|| validateCpf.equals("11111111111") || validateCpf.equals("22222222222")
+				|| validateCpf.equals("33333333333") || validateCpf.equals("44444444444")
+				|| validateCpf.equals("55555555555") || validateCpf.equals("66666666666")
+				|| validateCpf.equals("77777777777") || validateCpf.equals("88888888888")
+				|| validateCpf.equals("99999999999")) {
 			throw new CpfValidationException(strCpf);
 		}
 
