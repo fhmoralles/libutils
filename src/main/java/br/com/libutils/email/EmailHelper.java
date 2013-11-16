@@ -29,7 +29,7 @@ public class EmailHelper {
 
     private static final String CHARSET = "UTF-8";
 
-    private static final Character SEPARATOR = ',';
+    public static final Character SEPARATOR = ',';
 
     public enum TipoEmail {
         HTML, TEXTO;
