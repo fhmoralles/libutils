@@ -49,16 +49,6 @@ public abstract class AbstractRepository<T extends Serializable> implements
 		return (Root<T>) cq.from(this.entityConcreteClass);
 	}
 
-	// protected Predicate createEqualPredicate(final CriteriaBuilder cb,
-	// final Root<T> root, final SingularAttribute<T, String> attr,
-	// final String value) {
-	//
-	// final Path<String> path = root.get(attr);
-	// final Predicate predicate = cb.equal(path, value);
-	//
-	// return predicate;
-	// }
-
 	@Override
 	public void create(T c) {
 		getEntityManager().persist(c);
